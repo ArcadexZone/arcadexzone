@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ArcadexZone | Game Downloads</title>
+<meta name="description" content="ArcadexZone gaming archive. Discover arcade, OpenBOR, MUGEN and fan-made games.">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b0d12;color:#eee;font-family:Arial,sans-serif}
+header{background:#121722;padding:28px 6%;border-bottom:1px solid #252e3d}
+.logo{font-size:30px;font-weight:900;color:#ffae36}
+.logo span{color:#fff}
+header p{color:#929cac;margin-bottom:0}
+nav{padding:15px 6%;background:#10141d}
+nav a{color:#ddd;text-decoration:none;margin-right:24px;font-weight:bold}
+nav a:hover{color:#ffae36}
+.hero{text-align:center;padding:65px 20px 45px;background:linear-gradient(135deg,#171e2c,#0b0d12)}
+.hero h1{font-size:38px;margin:0 0 12px}
+.hero p{color:#aab2c0}
+.search{margin-top:24px;width:min(500px,90%);padding:15px;border-radius:8px;border:1px solid #343e50;background:#151b27;color:white;font-size:16px}
+main{max-width:1150px;margin:auto;padding:35px 20px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.filters button{background:#1b2432;color:#ddd;border:1px solid #303b4d;padding:10px 17px;border-radius:6px;cursor:pointer}
+.filters button.active,.filters button:hover{background:#ffae36;color:#111;border-color:#ffae36}
+.section-title{font-size:24px;margin-bottom:22px}
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.game{background:#151b26;border:1px solid #273244;border-radius:10px;overflow:hidden;transition:.2s}
+.game:hover{transform:translateY(-4px);border-color:#ffae36}
+.cover{height:145px;background:linear-gradient(135deg,#27344b,#121722);display:flex;align-items:center;justify-content:center;color:#ffae36;font-size:25px;font-weight:bold}
+.info{padding:17px}
+.info h3{margin:0 0 8px}
+.info p{color:#9ba6b7;font-size:14px;min-height:35px}
+.tag{display:inline-block;background:#252f40;color:#ffbd55;padding:5px 9px;border-radius:4px;font-size:12px}
+.link{display:block;margin-top:17px;text-align:center;background:#ffae36;color:#111;padding:11px;border-radius:6px;text-decoration:none;font-weight:bold}
+.link:hover{background:#ffc56d}
+footer{text-align:center;padding:30px;color:#7e8999;border-top:1px solid #252e3d;margin-top:45px}
+.empty{color:#aab2c0;grid-column:1/-1;padding:30px;text-align:center}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo">ARCADEX<span>ZONE</span></div>
+ <p>Retro Games • Arcade • OpenBOR • MUGEN</p>
+</header>
+
+<nav>
+ <a href="index.html">HOME</a>
+ <a href="#games">ALL GAMES</a>
+</nav>
+
+<section class="hero">
+ <h1>GAME DOWNLOAD ARCHIVE</h1>
+ <p>Discover games. Explore the archive. Enjoy playing!</p>
+ <input class="search" id="search" placeholder="Search games..." oninput="filterGames()">
+</section>
+
+<main id="games">
+ <h2 class="section-title">EXPLORE GAMES</h2>
+
+ <div class="filters">
+  <button class="active" onclick="setCategory('All',this)">All Games</button>
+  <button onclick="setCategory('OpenBOR',this)">OpenBOR</button>
+  <button onclick="setCategory('MUGEN',this)">MUGEN</button>
+  <button onclick="setCategory('Arcade',this)">Arcade</button>
+  <button onclick="setCategory('Hack',this)">Hacks</button>
+ </div>
+
+ <div class="games" id="gameList">
+
+  <article class="game" data-category="OpenBOR">
+   <div class="cover">OPENBOR</div>
+   <div class="info">
+    <h3>Final Fight LNS Redux</h3>
+    <span class="tag">OpenBOR</span>
+    <p>Beat 'em up fan game.</p>
+    <a class="link" href="#" onclick="return comingSoon()">PAGE COMING SOON</a>
+   </div>
+  </article>
+
+  <article class="game" data-category="Hack">
+   <div class="cover">SNES HACK</div>
+   <div class="info">
+    <h3>Street Chaves 2</h3>
+    <span class="tag">SNES Hack</span>
+    <p>A fan-made fighting game hack.</p>
+    <a class="link" href="#" onclick="return comingSoon()">PAGE COMING SOON</a>
+   </div>
+  </article>
+
+  <article class="game" data-category="Arcade">
+   <div class="cover">ARCADE</div>
+   <div class="info">
+    <h3>The Climber</h3>
+    <span class="tag">Arcade</span>
+    <p>Classic arcade game.</p>
+    <a class="link" href="#" onclick="return comingSoon()">PAGE COMING SOON</a>
+   </div>
+  </article>
+
+ </div>
+</main>
+
+<footer>
+ <p>© 2026 ArcadexZone. All rights reserved.</p>
+ <p>Game files are hosted externally.</p>
+</footer>
+
+<script>
+let category='All';
+function setCategory(value,button){
+ category=value;
+ document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
+ button.classList.add('active');
+ filterGames();
+}
+function filterGames(){
+ const term=document.getElementById('search').value.toLowerCase();
+ let count=0;
+ document.querySelectorAll('.game').forEach(card=>{
+  const matchCategory=category==='All'||card.dataset.category===category;
+  const matchText=card.innerText.toLowerCase().includes(term);
+  card.style.display=matchCategory&&matchText?'block':'none';
+  if(matchCategory&&matchText)count++;
+ });
+ let empty=document.getElementById('empty');
+ if(!count){
+  if(!empty){
+   empty=document.createElement('div');
+   empty.id='empty';
+   empty.className='empty';
+   document.getElementById('gameList').appendChild(empty);
+  }
+  empty.textContent='No games found.';
+ }else if(empty)empty.remove();
+}
+function comingSoon(){
+ alert('Download page coming soon!');
+ return false;
+}
+</script>
+
+</body>
+</html>
