@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ArcadexZone | Game Downloads</title>
 <meta name="description" content="ArcadexZone gaming archive. Discover arcade, OpenBOR, MUGEN and fan-made games.">
+
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#0b0d12;color:#eee;font-family:Arial,sans-serif}
@@ -39,6 +40,7 @@ footer{text-align:center;padding:30px;color:#7e8999;border-top:1px solid #252e3d
 .empty{color:#aab2c0;grid-column:1/-1;padding:30px;text-align:center}
 </style>
 </head>
+
 <body>
 
 <header>
@@ -70,6 +72,7 @@ footer{text-align:center;padding:30px;color:#7e8999;border-top:1px solid #252e3d
 
  <div class="games" id="gameList">
 
+  <!-- GAME 1 -->
   <article class="game" data-category="OpenBOR">
    <div class="cover">OPENBOR</div>
    <div class="info">
@@ -80,19 +83,18 @@ footer{text-align:center;padding:30px;color:#7e8999;border-top:1px solid #252e3d
    </div>
   </article>
 
-  
-<article class="game" data-category="OpenBOR">
- <div class="cover">OPENBOR</div>
- <div class="info">
-  <h3>Final Fight LNS Redux v13</h3>
-  <span class="tag">OpenBOR</span>
-  <p>Updated Final Fight LNS Redux fan game.</p>
-  <a class="link" 
-href="games/final-fight-lns-ultimate-redux-v13.html">VIEW DOWNLOAD PAGE</a>
- </div>
-</article>
+  <!-- GAME 2 -->
+  <article class="game" data-category="OpenBOR">
+   <div class="cover">OPENBOR</div>
+   <div class="info">
+    <h3>Final Fight LNS Redux v13</h3>
+    <span class="tag">OpenBOR</span>
+    <p>Updated Final Fight LNS Redux fan game.</p>
+    <a class="link" href="games/final-fight-lns-ultimate-redux-v13.html">VIEW DOWNLOAD PAGE</a>
+   </div>
+  </article>
 
-
+  <!-- GAME 3 -->
   <article class="game" data-category="Arcade">
    <div class="cover">ARCADE</div>
    <div class="info">
@@ -113,22 +115,27 @@ href="games/final-fight-lns-ultimate-redux-v13.html">VIEW DOWNLOAD PAGE</a>
 
 <script>
 let category='All';
+
 function setCategory(value,button){
  category=value;
  document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
  button.classList.add('active');
  filterGames();
 }
+
 function filterGames(){
  const term=document.getElementById('search').value.toLowerCase();
  let count=0;
+
  document.querySelectorAll('.game').forEach(card=>{
   const matchCategory=category==='All'||card.dataset.category===category;
   const matchText=card.innerText.toLowerCase().includes(term);
   card.style.display=matchCategory&&matchText?'block':'none';
   if(matchCategory&&matchText)count++;
  });
+
  let empty=document.getElementById('empty');
+
  if(!count){
   if(!empty){
    empty=document.createElement('div');
@@ -139,6 +146,7 @@ function filterGames(){
   empty.textContent='No games found.';
  }else if(empty)empty.remove();
 }
+
 function comingSoon(){
  alert('Download page coming soon!');
  return false;
