@@ -4,156 +4,350 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ArcadexZone | Game Downloads</title>
-<meta name="description" content="ArcadexZone gaming archive. Discover arcade, OpenBOR, MUGEN and fan-made games.">
+
+<title>ArcadexZone | Retro Game Archive</title>
+<meta name="description" content="ArcadexZone gaming archive. Search and discover arcade, OpenBOR, MUGEN and fan-made games.">
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#0b0d12;color:#eee;font-family:Arial,sans-serif}
-header{background:#121722;padding:28px 6%;border-bottom:1px solid #252e3d}
-.logo{font-size:30px;font-weight:900;color:#ffae36}
-.logo span{color:#fff}
-header p{color:#929cac;margin-bottom:0}
-nav{padding:15px 6%;background:#10141d}
-nav a{color:#ddd;text-decoration:none;margin-right:24px;font-weight:bold}
-nav a:hover{color:#ffae36}
-.hero{text-align:center;padding:65px 20px 45px;background:linear-gradient(135deg,#171e2c,#0b0d12)}
-.hero h1{font-size:38px;margin:0 0 12px}
-.hero p{color:#aab2c0}
-.search{margin-top:24px;width:min(500px,90%);padding:15px;border-radius:8px;border:1px solid #343e50;background:#151b27;color:white;font-size:16px}
-main{max-width:1150px;margin:auto;padding:35px 20px}
-.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
-.filters button{background:#1b2432;color:#ddd;border:1px solid #303b4d;padding:10px 17px;border-radius:6px;cursor:pointer}
-.filters button.active,.filters button:hover{background:#ffae36;color:#111;border-color:#ffae36}
-.section-title{font-size:24px;margin-bottom:22px}
-.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
-.game{background:#151b26;border:1px solid #273244;border-radius:10px;overflow:hidden;transition:.2s}
-.game:hover{transform:translateY(-4px);border-color:#ffae36}
-.cover{height:145px;background:linear-gradient(135deg,#27344b,#121722);display:flex;align-items:center;justify-content:center;color:#ffae36;font-size:25px;font-weight:bold}
-.info{padding:17px}
-.info h3{margin:0 0 8px}
-.info p{color:#9ba6b7;font-size:14px;min-height:35px}
-.tag{display:inline-block;background:#252f40;color:#ffbd55;padding:5px 9px;border-radius:4px;font-size:12px}
-.link{display:block;margin-top:17px;text-align:center;background:#ffae36;color:#111;padding:11px;border-radius:6px;text-decoration:none;font-weight:bold}
-.link:hover{background:#ffc56d}
-footer{text-align:center;padding:30px;color:#7e8999;border-top:1px solid #252e3d;margin-top:45px}
-.empty{color:#aab2c0;grid-column:1/-1;padding:30px;text-align:center}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(3, 5, 25, 0.48), rgba(3, 5, 25, 0.72)),
+        url("images/site%20arkaplan.png") center center / cover fixed no-repeat;
+    background-color: #080b20;
+    color: #eee;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    padding: 35px 15px 25px;
+    background: rgba(5, 7, 25, 0.65);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.logo {
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #ffae36;
+    text-shadow: 0 0 15px rgba(255,174,54,0.45);
+}
+
+.logo span {
+    color: #fff;
+}
+
+header p {
+    color: #c1c8e0;
+    margin: 10px 0 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.hero {
+    text-align: center;
+    padding: 35px 15px 20px;
+}
+
+.hero h1 {
+    font-size: 30px;
+    margin: 0 0 12px;
+    text-shadow: 0 2px 8px #000;
+}
+
+.hero p {
+    color: #d0d5e8;
+    margin: 0;
+}
+
+.search-box {
+    width: min(550px, 92%);
+    margin: 25px auto 0;
+    position: relative;
+}
+
+.search {
+    width: 100%;
+    padding: 16px 20px;
+    border-radius: 9px;
+    border: 2px solid rgba(255,174,54,0.65);
+    background: rgba(8,12,30,0.88);
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.search:focus {
+    border-color: #ffae36;
+    box-shadow: 0 0 15px rgba(255,174,54,0.25);
+}
+
+.search::placeholder {
+    color: #aab2c5;
+}
+
+main {
+    max-width: 850px;
+    margin: 15px auto 50px;
+    padding: 28px;
+    width: calc(100% - 30px);
+    background: rgba(5,8,25,0.88);
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 12px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+}
+
+.section-title {
+    color: #ffae36;
+    font-size: 23px;
+    margin: 0 0 20px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid #39415a;
+}
+
+.letter-section {
+    margin-bottom: 22px;
+}
+
+.letter {
+    color: #ffae36;
+    font-size: 21px;
+    font-weight: bold;
+    border-bottom: 1px solid #303950;
+    padding-bottom: 7px;
+    margin-bottom: 10px;
+}
+
+.game-link {
+    display: block;
+    padding: 12px 14px;
+    margin: 5px 0;
+    color: #e9edff;
+    text-decoration: none;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.045);
+    border: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.game-link:hover {
+    background: rgba(255,174,54,0.14);
+    border-color: #ffae36;
+    color: #ffbd55;
+    padding-left: 20px;
+}
+
+.coming-soon {
+    display: block;
+    padding: 12px 14px;
+    margin: 5px 0;
+    color: #aab2c5;
+    background: rgba(255,255,255,0.035);
+    border-radius: 6px;
+}
+
+.empty {
+    display: none;
+    color: #ffbd55;
+    text-align: center;
+    padding: 30px 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px 15px;
+    color: #c0c5d7;
+    background: rgba(5,7,22,0.8);
+    border-top: 1px solid rgba(255,255,255,0.12);
+    font-size: 13px;
+}
+
+@media(max-width:600px) {
+    .logo {
+        font-size: 30px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    main {
+        padding: 20px 15px;
+    }
+}
 </style>
 </head>
 
 <body>
 
 <header>
- <div class="logo">ARCADEX<span>ZONE</span></div>
- <p>Retro Games • Arcade • OpenBOR • MUGEN</p>
+    <div class="logo">ARCADEX<span>ZONE</span></div>
+    <p>RETRO GAMES • ARCADE • OPENBOR • MUGEN</p>
 </header>
 
-<nav>
- <a href="index.html">HOME</a>
- <a href="#games">ALL GAMES</a>
-</nav>
-
 <section class="hero">
- <h1>GAME DOWNLOAD ARCHIVE</h1>
- <p>Discover games. Explore the archive. Enjoy playing!</p>
- <input class="search" id="search" placeholder="Search games..." oninput="filterGames()">
+    <h1>GAME DOWNLOAD ARCHIVE</h1>
+    <p>Search your favorite games and explore the archive.</p>
+
+    <div class="search-box">
+        <input
+            class="search"
+            id="search"
+            type="search"
+            placeholder="Search games..."
+            oninput="filterGames()"
+            autocomplete="off"
+        >
+    </div>
 </section>
 
 <main id="games">
- <h2 class="section-title">EXPLORE GAMES</h2>
 
- <div class="filters">
-  <button class="active" onclick="setCategory('All',this)">All Games</button>
-  <button onclick="setCategory('OpenBOR',this)">OpenBOR</button>
-  <button onclick="setCategory('MUGEN',this)">MUGEN</button>
-  <button onclick="setCategory('Arcade',this)">Arcade</button>
-  <button onclick="setCategory('Hack',this)">Hacks</button>
- </div>
+    <h2 class="section-title">ALL GAMES A-Z</h2>
 
- <div class="games" id="gameList">
+    <div id="gameList">
 
-  <!-- GAME 1 -->
-  <article class="game" data-category="OpenBOR">
-  <div class="cover">
- <img src="images/final-fight-arranged.png" alt="Final Fight LNS Arranged" style="width:100%;height:100%;object-fit:cover;">
-</div>
-   <div class="info">
-    <h3>Final Fight LNS Arranged</h3>
-    <span class="tag">OpenBOR</span>
-    <p>Beat 'em up fan game.</p>
-    <a class="link" href="games/final-fight-lns-arranged-v2-9-2.html">VIEW DOWNLOAD PAGE</a>
-   </div>
-  </article>
+        <!-- A -->
+        <!-- Yeni A oyunlarını buraya ekle -->
 
-  <!-- GAME 2 -->
-  <article class="game" data-category="OpenBOR">
-  <div class="cover">
- <img src="images/final-fight-redux-v13.png" alt="Final Fight LNS Redux v13" style="width:100%;height:100%;object-fit:cover;">
-</div>
-   <div class="info">
-    <h3>Final Fight LNS Redux v13</h3>
-    <span class="tag">OpenBOR</span>
-    <p>Updated Final Fight LNS Redux fan game.</p>
-    <a class="link" href="games/final-fight-lns-ultimate-redux-v13.html">VIEW DOWNLOAD PAGE</a>
-   </div>
-  </article>
+        <!-- B -->
+        <!-- Yeni B oyunlarını buraya ekle -->
 
-  <!-- GAME 3 -->
-  <article class="game" data-category="Arcade">
-   <div class="cover">ARCADE</div>
-   <div class="info">
-    <h3>The Climber</h3>
-    <span class="tag">Arcade</span>
-    <p>Classic arcade game.</p>
-    <a class="link" href="#" onclick="return comingSoon()">PAGE COMING SOON</a>
-   </div>
-  </article>
+        <!-- C -->
+        <!-- Yeni C oyunlarını buraya ekle -->
 
- </div>
+        <!-- D -->
+        <!-- Yeni D oyunlarını buraya ekle -->
+
+        <!-- E -->
+        <!-- Yeni E oyunlarını buraya ekle -->
+
+        <!-- F -->
+        <section class="letter-section">
+            <div class="letter">F</div>
+
+            <a class="game-link"
+               href="games/final-fight-lns-arranged-v2-9-2.html">
+               Final Fight LNS Arranged v2.9.2
+            </a>
+
+            <a class="game-link"
+               href="games/final-fight-lns-ultimate-redux-v13.html">
+               Final Fight LNS Redux v13
+            </a>
+        </section>
+
+        <!-- G -->
+        <!-- Yeni G oyunlarını buraya ekle -->
+
+        <!-- H -->
+        <!-- Yeni H oyunlarını buraya ekle -->
+
+        <!-- I -->
+        <!-- Yeni I oyunlarını buraya ekle -->
+
+        <!-- J -->
+        <!-- Yeni J oyunlarını buraya ekle -->
+
+        <!-- K -->
+        <!-- Yeni K oyunlarını buraya ekle -->
+
+        <!-- L -->
+        <!-- Yeni L oyunlarını buraya ekle -->
+
+        <!-- M -->
+        <!-- Yeni M oyunlarını buraya ekle -->
+
+        <!-- N -->
+        <!-- Yeni N oyunlarını buraya ekle -->
+
+        <!-- O -->
+        <!-- Yeni O oyunlarını buraya ekle -->
+
+        <!-- P -->
+        <!-- Yeni P oyunlarını buraya ekle -->
+
+        <!-- Q -->
+        <!-- Yeni Q oyunlarını buraya ekle -->
+
+        <!-- R -->
+        <!-- Yeni R oyunlarını buraya ekle -->
+
+        <!-- S -->
+        <!-- Yeni S oyunlarını buraya ekle -->
+
+        <!-- T -->
+        <section class="letter-section">
+            <div class="letter">T</div>
+
+            <span class="coming-soon">
+                The Climber — Download page coming soon
+            </span>
+        </section>
+
+        <!-- U -->
+        <!-- Yeni U oyunlarını buraya ekle -->
+
+        <!-- V -->
+        <!-- Yeni V oyunlarını buraya ekle -->
+
+        <!-- W -->
+        <!-- Yeni W oyunlarını buraya ekle -->
+
+        <!-- X -->
+        <!-- Yeni X oyunlarını buraya ekle -->
+
+        <!-- Y -->
+        <!-- Yeni Y oyunlarını buraya ekle -->
+
+        <!-- Z -->
+        <!-- Yeni Z oyunlarını buraya ekle -->
+
+    </div>
+
+    <div class="empty" id="empty">
+        No games found. Try another search.
+    </div>
+
 </main>
 
 <footer>
- <p>© 2026 ArcadexZone. All rights reserved.</p>
- <p>Game files are hosted externally.</p>
+    <p>© 2026 ArcadexZone. All rights reserved.</p>
+    <p>Game files are hosted externally.</p>
 </footer>
 
 <script>
-let category='All';
+function filterGames() {
+    const term = document.getElementById("search")
+        .value.trim().toLowerCase();
 
-function setCategory(value,button){
- category=value;
- document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
- button.classList.add('active');
- filterGames();
-}
+    const sections = document.querySelectorAll(".letter-section");
+    let total = 0;
 
-function filterGames(){
- const term=document.getElementById('search').value.toLowerCase();
- let count=0;
+    sections.forEach(section => {
+        const games = section.querySelectorAll(".game-link, .coming-soon");
+        let visible = 0;
 
- document.querySelectorAll('.game').forEach(card=>{
-  const matchCategory=category==='All'||card.dataset.category===category;
-  const matchText=card.innerText.toLowerCase().includes(term);
-  card.style.display=matchCategory&&matchText?'block':'none';
-  if(matchCategory&&matchText)count++;
- });
+        games.forEach(game => {
+            const match = game.textContent.toLowerCase().includes(term);
 
- let empty=document.getElementById('empty');
+            game.style.display = match ? "block" : "none";
 
- if(!count){
-  if(!empty){
-   empty=document.createElement('div');
-   empty.id='empty';
-   empty.className='empty';
-   document.getElementById('gameList').appendChild(empty);
-  }
-  empty.textContent='No games found.';
- }else if(empty)empty.remove();
-}
+            if (match) visible++;
+        });
 
-function comingSoon(){
- alert('Download page coming soon!');
- return false;
+        section.style.display = visible > 0 ? "block" : "none";
+        total += visible;
+    });
+
+    document.getElementById("empty").style.display =
+        total === 0 ? "block" : "none";
 }
 </script>
 
