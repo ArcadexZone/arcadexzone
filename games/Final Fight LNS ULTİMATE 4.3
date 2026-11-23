@@ -1,1 +1,156 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- [1] SAYFA BAŞLIĞI: OYUN ADINI YAZ -->
+<title>GAME NAME | ArcadexZone</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(3,5,25,0.48), rgba(3,5,25,0.70)),
+        url("../images/site%20arkaplan.png") center center / cover fixed no-repeat;
+    background-color: #080b20;
+}
+
+header {
+    text-align: center;
+    padding: 30px 15px;
+}
+
+header h1 {
+    font-size: 32px;
+    color: #ffffff;
+    text-shadow: 0 0 12px #8b5cff;
+    letter-spacing: 3px;
+}
+
+.container {
+    max-width: 650px;
+    margin: 20px auto 60px;
+    padding: 30px 20px;
+    text-align: center;
+    background: rgba(5, 8, 30, 0.82);
+    border: 1px solid rgba(139, 92, 255, 0.5);
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(100, 60, 255, 0.25);
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #bba5ff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.game-image {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border: 2px solid #7652d9;
+}
+
+h2 {
+    font-size: 27px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.version {
+    color: #bba5ff;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+.download-btn {
+    display: block;
+    max-width: 380px;
+    margin: 12px auto;
+    padding: 16px;
+    background: linear-gradient(90deg, #6638d9, #a044ff);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.download-btn:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 18px #925cff;
+}
+
+footer {
+    margin-top: 30px;
+    color: #999;
+    font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>ARCADEXZONE</h1>
+</header>
+
+<div class="container">
+
+    <a class="back-link" href="../index.html">
+        ← BACK TO ALL GAMES
+    </a>
+
+    <!-- [2] OYUN RESMİ: images KLASÖRÜNDEKİ DOSYA ADI -->
+    <img
+        class="game-image"
+        src="../images/GAME-IMAGE.png"
+        alt="GAME NAME"
+    >
+
+    <!-- [3] OYUNUN ADI -->
+    <h2>GAME NAME</h2>
+
+    <!-- [4] OYUNUN VERSİYONU -->
+    <p class="version">VERSION 1.0</p>
+
+    <!-- [5] İNDİRME LİNKİ: İSTEDİĞİN KADAR BUTON EKLEYEBİLİRSİN -->
+    <a
+        class="download-btn"
+        href="PASTE-DOWNLOAD-LINK-HERE"
+        target="_blank"
+        rel="noopener noreferrer">
+        ⬇ DOWNLOAD GAME
+    </a>
+
+    <!-- İKİNCİ İNDİRME LİNKİ GEREKİRSE BU ALANI AÇ:
+    <a
+        class="download-btn"
+        href="PASTE-SECOND-DOWNLOAD-LINK-HERE"
+        target="_blank"
+        rel="noopener noreferrer">
+        ⬇ DOWNLOAD – MIRROR
+    </a>
+    -->
+
+    <footer>
+        © ArcadexZone
+    </footer>
+
+</div>
+
+</body>
+</html>
