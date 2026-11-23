@@ -120,14 +120,25 @@ main {
     margin: 20px 0 28px;
 }
 
+
+.alphabet-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 3px;
+    margin: 20px 0 28px;
+    width: 100%;
+}
+
 .alphabet-nav button {
-    min-width: 32px;
-    padding: 9px 7px;
+    min-width: 0;
+    flex: 1;
+    padding: 8px 2px;
     color: #ffae36;
     background: rgba(255,255,255,0.06);
     border: 1px solid #39415a;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.2s;
@@ -138,6 +149,8 @@ main {
     background: #ffae36;
     color: #080b20;
     border-color: #ffae36;
+}
+
 }
 
 .letter-section {
