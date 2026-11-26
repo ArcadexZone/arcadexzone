@@ -1,0 +1,627 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ArcadexZone | Retro Game Archive</title>
+<meta name="description" content="ArcadexZone gaming archive. Search and discover arcade, OpenBOR, MUGEN and fan-made games.">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(3, 5, 25, 0.48), rgba(3, 5, 25, 0.72)),
+        url("images/site%20arkaplan.png") center center / cover fixed no-repeat;
+    background-color: #080b20;
+    color: #eee;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    padding: 35px 15px 25px;
+    background: rgba(5, 7, 25, 0.65);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.logo {
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #ffae36;
+    text-shadow: 0 0 15px rgba(255,174,54,0.45);
+}
+
+.logo span {
+    color: #fff;
+}
+
+header p {
+    color: #c1c8e0;
+    margin: 10px 0 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.hero {
+    text-align: center;
+    padding: 35px 15px 20px;
+}
+
+.hero h1 {
+    font-size: 30px;
+    margin: 0 0 12px;
+    text-shadow: 0 2px 8px #000;
+}
+
+.hero p {
+    color: #d0d5e8;
+    margin: 0;
+}
+
+.search-box {
+    width: min(550px, 92%);
+    margin: 25px auto 0;
+}
+
+.search {
+    width: 100%;
+    padding: 16px 20px;
+    border-radius: 9px;
+    border: 2px solid rgba(255,174,54,0.65);
+    background: rgba(8,12,30,0.88);
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.search:focus {
+    border-color: #ffae36;
+    box-shadow: 0 0 15px rgba(255,174,54,0.25);
+}
+
+.search::placeholder {
+    color: #aab2c5;
+}
+
+main {
+    max-width: 850px;
+    margin: 15px auto 50px;
+    padding: 28px;
+    width: calc(100% - 30px);
+    background: rgba(5,8,25,0.88);
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 12px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+}
+
+.section-title {
+    color: #ffae36;
+    font-size: 23px;
+    margin: 0 0 20px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid #39415a;
+}
+
+/* ALPHABET MENU */
+
+.alphabet-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 3px;
+    margin: 20px 0 28px;
+    width: 100%;
+}
+
+.alphabet-nav button {
+    min-width: 0;
+    flex: 1;
+    padding: 8px 2px;
+    color: #ffae36;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid #39415a;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.alphabet-nav button:hover,
+.alphabet-nav button.active {
+    background: #ffae36;
+    color: #080b20;
+    border-color: #ffae36;
+}
+
+.letter-section {
+    margin-bottom: 22px;
+}
+
+.letter {
+    color: #ffae36;
+    font-size: 21px;
+    font-weight: bold;
+    border-bottom: 1px solid #303950;
+    padding-bottom: 7px;
+    margin-bottom: 10px;
+}
+
+.game-link {
+    display: block;
+    padding: 12px 14px;
+    margin: 5px 0;
+    color: #e9edff;
+    text-decoration: none;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.045);
+    border: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.game-link:hover {
+    background: rgba(255,174,54,0.14);
+    border-color: #ffae36;
+    color: #ffbd55;
+    padding-left: 20px;
+}
+
+.empty {
+    display: none;
+    color: #ffbd55;
+    text-align: center;
+    padding: 30px 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px 15px;
+    color: #c0c5d7;
+    background: rgba(5,7,22,0.8);
+    border-top: 1px solid rgba(255,255,255,0.12);
+    font-size: 13px;
+}
+
+@media(max-width:600px) {
+    .logo {
+        font-size: 30px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    main {
+        padding: 20px 15px;
+    }
+
+    .alphabet-nav {
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: 4px;
+        padding-bottom: 5px;
+    }
+
+    .alphabet-nav button {
+        flex: 0 0 29px;
+        min-width: 29px;
+        padding: 8px 3px;
+    }
+
+    .alphabet-nav button:first-child {
+        flex-basis: 36px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">ARCADEX<span>ZONE</span></div>
+    <p>RETRO GAMES • ARCADE • OPENBOR • MUGEN</p>
+</header>
+
+<section class="hero">
+    <h1>GAME DOWNLOAD ARCHIVE</h1>
+    <p>Search your favorite games and explore the archive.</p>
+
+    <div class="search-box">
+        <input
+            class="search"
+            id="search"
+            type="search"
+            placeholder="Search games..."
+            oninput="filterGames()"
+            autocomplete="off"
+        >
+    </div>
+</section>
+
+<main id="games">
+
+    <h2 class="section-title">ALL GAMES A-Z</h2>
+
+    <!-- ALPHABET MENU -->
+
+    <div class="alphabet-nav" id="alphabetNav">
+        <button class="active" onclick="selectLetter('ALL', this)">ALL</button>
+        <button onclick="selectLetter('A', this)">A</button>
+        <button onclick="selectLetter('B', this)">B</button>
+        <button onclick="selectLetter('C', this)">C</button>
+        <button onclick="selectLetter('D', this)">D</button>
+        <button onclick="selectLetter('E', this)">E</button>
+        <button onclick="selectLetter('F', this)">F</button>
+        <button onclick="selectLetter('G', this)">G</button>
+        <button onclick="selectLetter('H', this)">H</button>
+        <button onclick="selectLetter('I', this)">I</button>
+        <button onclick="selectLetter('J', this)">J</button>
+        <button onclick="selectLetter('K', this)">K</button>
+        <button onclick="selectLetter('L', this)">L</button>
+        <button onclick="selectLetter('M', this)">M</button>
+        <button onclick="selectLetter('N', this)">N</button>
+        <button onclick="selectLetter('O', this)">O</button>
+        <button onclick="selectLetter('P', this)">P</button>
+        <button onclick="selectLetter('Q', this)">Q</button>
+        <button onclick="selectLetter('R', this)">R</button>
+        <button onclick="selectLetter('S', this)">S</button>
+        <button onclick="selectLetter('T', this)">T</button>
+        <button onclick="selectLetter('U', this)">U</button>
+        <button onclick="selectLetter('V', this)">V</button>
+        <button onclick="selectLetter('W', this)">W</button>
+        <button onclick="selectLetter('X', this)">X</button>
+        <button onclick="selectLetter('Y', this)">Y</button>
+        <button onclick="selectLetter('Z', this)">Z</button>
+    </div>
+
+    <div id="gameList">
+
+        <!-- A -->
+        <section class="letter-section">
+            <div class="letter">A</div>
+            <a class="game-link" href="games/Asterix-and-Caesar.html">
+    Asterix and Caesar's Challenge OpenBOR
+</a>
+            <a class="game-link" href="games/arfBeatsOfRageRemix3.html">
+              Art of Fighting - Beats Of Rage Remix III
+         </a>
+        </section>
+
+        <!-- B -->
+        <section class="letter-section">
+            <div class="letter">B</div>
+
+            <a class="game-link" href="games/Briga_de_Rua.html">
+            Briga de Rua
+         </a>
+
+            <a class="game-link" href="games/BMStreetsHeroes.html">
+             BM Streets Heroes
+             </a>
+
+            <a class="game-link" href="games/BeastofRageXtra.html">
+              Beast of Rage Xtra
+               </a>
+            
+        </section>
+
+        <!-- C -->
+        <section class="letter-section">
+            <div class="letter">C</div>
+
+            <a class="game-link" href="games/Captain_Commando_and_the_Avengers_Hannah_Dundee.html">
+             Captain Commando and the Avengers Hannah Dundee
+            </a>
+            <a class="game-link" href="games/crimebuster.html">
+             Crime Buster
+            </a>
+            
+            <a class="game-link" href="games/CrisisEvil4Beta.html">
+            Crisis Evil 4 Beta
+           </a>
+            
+            <a class="game-link" href="games/CastlevaniaSymphony.html">
+            Castlevania Symphony of Destruction
+            </a>
+
+
+
+        </section>
+
+        <!-- D -->
+        <section class="letter-section">
+            <div class="letter">D</div>
+
+      <a class="game-link" href="games/DungeonsDragons.html">
+          Dungeons & Dragons Caverna do Dragão
+         </a>
+            <a class="game-link" href="games/D&Dopenbor.html">
+    Dungeons & Dragon Knights & Dragons
+</a>
+            
+        </section>
+
+        <!-- E -->
+        <section class="letter-section">
+            <div class="letter">E</div>
+
+      <a class="game-link" href="games/EvilDeadopenbor.html">
+        Evil Dead v.3.0 Build 4086 OpenBOR
+         </a>
+        </section>
+
+        <!-- F -->
+        <section class="letter-section">
+            <div class="letter">F</div>
+            
+<a class="game-link" href="games/fightcade.html">
+    FIGHTCADE
+</a>
+
+
+            <a class="game-link" href="games/final-fight-lns-arranged-v2-9-2.html">
+                Final Fight LNS Arranged v2.9.2
+            </a>
+
+            <a class="game-link" href="games/final-fight-lns-ultimate-redux-v13.html">
+                Final Fight LNS Redux v13
+            </a>
+           
+            <a class="game-link" href="games/final-fight-lns-ultimate-4-3.html">
+                 Final Fight LNS ULTIMATE 4.3
+             </a>
+
+            <a class="game-link" href="games/FBNeo-Emulator.html">
+                    FBNeo Emulator
+            </a>
+            
+<a class="game-link" href="games/FatalFuryFinal1.0.html">
+    Fatal Fury Final v1.0
+</a>
+
+        </section>
+
+        <!-- G -->
+        <section class="letter-section">
+            <div class="letter">G</div>
+            
+<a class="game-link" href="games/Guardians.html">
+    Guardians of the Hood 2
+</a>
+
+        </section>
+
+        <!-- H -->
+        <section class="letter-section">
+            <div class="letter">H</div>
+           <a class="game-link" href="games/HowtoDownloadSuperStreetChaves2.html">
+    HOW TO DOWNLOAD SUPER STREET CHAVES 2
+</a>
+        </section>
+
+        <!-- I -->
+        <section class="letter-section">
+            <div class="letter">I</div>
+        </section>
+
+        <!-- J -->
+        <section class="letter-section">
+            <div class="letter">J</div>
+            <a class="game-link" href="games/jenifer.html">
+    Jennifer by MasterDerico
+</a>
+            
+
+
+        </section>
+
+        <!-- K -->
+        <section class="letter-section">
+            <div class="letter">K</div>
+        </section>
+
+        <!-- L -->
+        <section class="letter-section">
+            <div class="letter">L</div>
+        </section>
+
+        <!-- M -->
+        <section class="letter-section">
+            <div class="letter">M</div>
+            
+<a class="game-link" href="games/mkmugen.html">
+    Mortal Kombat Kollection Mugen
+</a>
+
+        </section>
+
+        <!-- N -->
+        <section class="letter-section">
+            <div class="letter">N</div>
+            <a class="game-link" href="games/ninjawa.html">
+    Ninja Warriors Again RX V1.02
+</a>
+        </section>
+
+        <!-- O -->
+        <section class="letter-section">
+            <div class="letter">O</div>
+        </section>
+
+        <!-- P -->
+        <section class="letter-section">
+            <div class="letter">P</div>
+        </section>
+
+        <!-- Q -->
+        <section class="letter-section">
+            <div class="letter">Q</div>
+        </section>
+
+        <!-- R -->
+        <section class="letter-section">
+            <div class="letter">R</div>
+        </section>
+
+        <!-- S -->
+        <section class="letter-section">
+            <div class="letter">S</div>
+            <a class="game-link" href="games/StreetsofRageChaos.html">
+    Streets of Rage Chaos
+</a>          
+<a class="game-link" href="games/Storsilenthill.html">
+    Streets of Rage Silent Hill
+</a>
+            <a class="game-link" href="games/31gamepacksorr.html">
+         Streets of Rage For Justice in Brazil
+         </a>
+         <a class="game-link" href="games/sot.html">
+            Stains of Deception Ver. 2.0
+             </a>
+<a class="game-link" href="games/sordoubledragon.html">
+    Streets of Rage 5.1 Double Dragon Remake by CelestinX
+</a>
+            <a class="game-link" href="games/StreersOfRageTroubleinJapan.html">
+    Streets Of Rage Troubles in Japan
+</a>
+            
+<a class="game-link" href="games/StreetsofRageLegacy.html">
+    Streets of Rage Legacy 2.4.2026
+</a>
+
+            <a class="game-link" href="games/StreetsofRageZombie.html">
+    Streets of Rage Zombie
+</a>
+            
+<a class="game-link" href="games/StreetsofRageWWII.html">
+    Streets of Rage WWII
+</a>
+           <a class="game-link" href="games/StreetsofRage2Xv3.0.html">
+    Streets of Rage 2X v3.0
+   </a>
+            <a class="game-link" href="games/StreetsofRageRT2.html">
+    Streets of Rage Remake Terminator 2
+</a>
+            <a class="game-link" href="games/StreetsofRageLegacy2020.html">
+    Streets of Rage Legacy 1.5 2020
+</a>
+            
+        <a class="game-link" href="games/SFXiangLong.html">
+         Street Fighter II' Xiang Long Chinese Bootleg
+           </a>
+        </section>
+
+        <!-- T -->
+        <section class="letter-section">
+            <div class="letter">T</div>
+        </section>
+
+        <!-- U -->
+        <section class="letter-section">
+            <div class="letter">U</div>
+        </section>
+
+        <!-- V -->
+        <section class="letter-section">
+            <div class="letter">V</div>
+        </section>
+
+        <!-- W -->
+        <section class="letter-section">
+            <div class="letter">W</div>
+<a class="game-link" href="games/worldheroesbeatmup.html">
+    World Heroes Supreme Justice Extra
+</a>
+
+        </section>
+
+        <!-- X -->
+        <section class="letter-section">
+            <div class="letter">X</div>
+        </section>
+
+        <!-- Y -->
+        <section class="letter-section">
+            <div class="letter">Y</div>
+        </section>
+
+        <!-- Z -->
+        <section class="letter-section">
+            <div class="letter">Z</div>
+        </section>
+
+    </div>
+
+    <div class="empty" id="empty">
+        No games found. Try another search.
+    </div>
+
+</main>
+
+<footer>
+    <p>© 2026 ArcadexZone. All rights reserved.</p>
+    <p>Game files are hosted externally.</p>
+</footer>
+
+<script>
+let selectedLetter = "ALL";
+
+function selectLetter(letter, button) {
+    selectedLetter = letter;
+
+    document.querySelectorAll(".alphabet-nav button").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    filterGames();
+}
+
+function filterGames() {
+    const term = document.getElementById("search")
+        .value.trim().toLowerCase();
+
+    const sections = document.querySelectorAll(".letter-section");
+    let total = 0;
+
+    sections.forEach(section => {
+        const letter = section.querySelector(".letter").textContent.trim();
+        const games = section.querySelectorAll(".game-link");
+        let visible = 0;
+
+        games.forEach(game => {
+            const matchesSearch =
+                game.textContent.toLowerCase().includes(term);
+
+            const matchesLetter =
+                selectedLetter === "ALL" || selectedLetter === letter;
+
+            const show = matchesSearch && matchesLetter;
+
+            game.style.display = show ? "block" : "none";
+
+            if (show) visible++;
+        });
+
+        section.style.display = visible > 0 ? "block" : "none";
+        total += visible;
+    });
+
+    document.getElementById("empty").style.display =
+        total === 0 ? "block" : "none";
+}
+
+filterGames();
+</script>
+
+</body>
+</html>
