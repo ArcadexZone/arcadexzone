@@ -3,12 +3,23 @@
     const backLink = document.querySelector("main a.back");
     if (!backLink || document.querySelector(".youtube-channel-button")) return;
 
-    // BACK TO ALL GAMES: başlıkla aynı sol hiza
-    backLink.style.display = "block";
-    backLink.style.margin = "0 0 25 0";
-    backLink.style.textAlign = "left";
+    const row = document.createElement("div");
+    row.style.cssText = `
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 25px;
+    `;
 
-    // YouTube butonu
+    backLink.parentNode.insertBefore(row, backLink);
+    row.appendChild(backLink);
+
+    backLink.style.display = "block";
+    backLink.style.margin = "0";
+    backLink.style.textAlign = "left";
+    backLink.style.gridColumn = "1";
+
     const button = document.createElement("a");
     button.className = "youtube-channel-button";
     button.href = "https://youtube.com/@arcadexzone";
@@ -17,11 +28,9 @@
     button.textContent = "▶ ARCADEXZONE OFFICIAL YOUTUBE CHANNEL";
 
     button.style.cssText = `
-        display: block;
-        width: fit-content;
-        max-width: 100%;
-        box-sizing: border-box;
-        margin: 0 auto 25px auto;
+        display: inline-block;
+        grid-column: 2;
+        grid-row: 1;
         padding: 9px 16px;
         background: #d71920;
         color: #fff;
@@ -31,7 +40,8 @@
         font-weight: bold;
         letter-spacing: 0.3px;
         text-align: center;
+        white-space: nowrap;
     `;
 
-    backLink.insertAdjacentElement("afterend", button);
+    row.appendChild(button);
 })();
