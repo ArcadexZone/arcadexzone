@@ -29,14 +29,14 @@
 
     button.style.cssText = `
         display: inline-block;
-        grid-column: 20;
+        grid-column: 2;
         grid-row: 1;
         padding: 9px 16px;
         background: #d71920;
         color: #fff;
         border-radius: 7px;
         text-decoration: none;
-        font-size: 12px;
+        font-size: 13px;
         font-weight: bold;
         letter-spacing: 0.3px;
         text-align: center;
