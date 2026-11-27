@@ -31,7 +31,7 @@
         display: inline-block;
         grid-column: 2;
         grid-row: 1;
-        padding: 10px 17px;
+        padding: 9px 16px;
         background: #d71920;
         color: #fff;
         border-radius: 7px;
