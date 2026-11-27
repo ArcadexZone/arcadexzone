@@ -5,7 +5,7 @@
 
     // BACK TO ALL GAMES: başlıkla aynı sol hiza
     backLink.style.display = "block";
-    backLink.style.margin = "0 0 20px 0";
+    backLink.style.margin = "0 0 10px 0";
     backLink.style.textAlign = "left";
 
     // YouTube butonu
