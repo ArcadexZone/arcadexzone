@@ -25,7 +25,7 @@
     button.href = "https://youtube.com/@arcadexzone";
     button.target = "_blank";
     button.rel = "noopener noreferrer";
-    button.textContent = "▶ ARCADEXZONE OFFICIAL YOUTUBE CHANNEL";
+    button.textContent = "▶ ARCADEXZONE YOUTUBE CHANNEL";
 
     button.style.cssText = `
         display: inline-block;
