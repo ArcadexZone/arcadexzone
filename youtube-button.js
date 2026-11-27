@@ -3,6 +3,12 @@
     const backLink = document.querySelector("main a.back");
     if (!backLink || document.querySelector(".youtube-channel-button")) return;
 
+    // BACK TO ALL GAMES: başlıkla aynı sol hiza
+    backLink.style.display = "block";
+    backLink.style.margin = "0 0 20px 0";
+    backLink.style.textAlign = "left";
+
+    // YouTube butonu
     const button = document.createElement("a");
     button.className = "youtube-channel-button";
     button.href = "https://youtube.com/@arcadexzone";
@@ -15,7 +21,7 @@
         width: fit-content;
         max-width: 100%;
         box-sizing: border-box;
-        margin: 20px auto;
+        margin: 0 auto 25px auto;
         padding: 9px 16px;
         background: #d71920;
         color: #fff;
