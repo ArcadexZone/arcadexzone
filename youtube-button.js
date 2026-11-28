@@ -30,13 +30,13 @@
     button.style.cssText = `
         display: inline-block;
         grid-column: 2;
-        grid-row: 2;
+        grid-row: 1;
         padding: 9px 16px;
         background: #d71920;
         color: #fff;
         border-radius: 7px;
         text-decoration: none;
-        font-size: 10px;
+        font-size: 12px;
         font-weight: bold;
         letter-spacing: 0.3px;
         text-align: center;
