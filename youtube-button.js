@@ -30,7 +30,7 @@
     button.style.cssText = `
         display: inline-block;
         grid-column: 2;
-        grid-row: 1;
+        grid-row: 2;
         padding: 9px 16px;
         background: #d71920;
         color: #fff;
