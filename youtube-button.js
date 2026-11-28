@@ -36,7 +36,7 @@
         color: #fff;
         border-radius: 7px;
         text-decoration: none;
-        font-size: 15px;
+        font-size: 11px;
         font-weight: bold;
         letter-spacing: 0.3px;
         text-align: center;
